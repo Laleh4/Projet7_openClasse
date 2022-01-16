@@ -18,5 +18,5 @@ df_train=pd.read_csv(path_L+"/X_train.csv")
 #    return str(dft["label"].values[0])   
 #else:
 #    return " "
-
-st.write(df_train["EXT_SOURCE_3"][0])
+number_client = st.number_input('Insert the client number')
+st.write(df_train["EXT_SOURCE_3"][number_client])
