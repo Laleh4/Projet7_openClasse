@@ -12,7 +12,7 @@ import pathlib
 TT=pathlib.Path(__file__).parent.resolve()
 path_L=str(TT).replace("\\","/") 
 #df=pd.read_csv(path_L+"/labels.csv") 
-df_train=pd.read_csv(path_L+"/X_train.csv")
+df_train=pd.read_csv(path_L+"/data_projet7/X_train.csv")
 #dft=df[df.name==image_file.name]
 #if len(dft):
 #    return str(dft["label"].values[0])   
