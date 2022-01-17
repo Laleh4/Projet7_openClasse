@@ -21,4 +21,4 @@ streamlit == 0.82.0
 
 # C:\Users\laleh\Documents\OpenClassrooms\Data_scientist\projet7_modele_scoring\Streamlit_Github\debug.py: 10
 # C:\Users\laleh\Documents\OpenClassrooms\Data_scientist\projet7_modele_scoring\Streamlit_Github\streamlit_projet7.py: 13
-#~atplotlib == 3.3.4
+matplotlib == 3.3.4
