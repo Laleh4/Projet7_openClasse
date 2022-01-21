@@ -15,6 +15,11 @@ import pickle
 from sklearn.ensemble import RandomForestClassifier
 import shap
 
+import gdown
+import os
+import shutil
+
+
 TT=pathlib.Path(__file__).parent.resolve()
 path_L=str(TT).replace("\\","/") 
 st.title("Credit Analysis  App")
@@ -48,22 +53,33 @@ menu=["Home", "General","Analysis"]
 choice=st.sidebar.selectbox("Menu",menu)
 
 if choice=="General":
-       st.subheader("General about feature importance of the model")      
-       importances_rf= pd.DataFrame({
-            'Attribute': columns_titles,
-            'Importance': np.abs(rf_model.feature_importances_)
-        })
-
-       importances_rf=importances_rf.sort_values(by='Importance', ascending=False)
-       list_Feat_imp=list(importances_rf["Attribute"])
+        st.subheader("General about feature importance of the model")      
+        importances_rf= pd.DataFrame({
+             'Attribute': columns_titles,
+             'Importance': np.abs(rf_model.feature_importances_)
+         })
+ 
+        importances_rf=importances_rf.sort_values(by='Importance', ascending=False)
+        list_Feat_imp=list(importances_rf["Attribute"])
+        
+        fig, ax = plt.subplots()
+        cmap = plt.cm.coolwarm
+        ax.bar(x=importances_rf.Attribute,height=importances_rf.Importance,width=0.2,color=cmap(np.linspace(0,1,len(importances_rf)))) #['r','b','g'])
+        plt.xticks(rotation=90)
+        st.pyplot(fig)
        
-       fig, ax = plt.subplots()
-       cmap = plt.cm.coolwarm
-       ax.bar(x=importances_rf.Attribute,height=importances_rf.Importance,width=0.2,color=cmap(np.linspace(0,1,len(importances_rf)))) #['r','b','g'])
-       plt.xticks(rotation=90)
-       st.pyplot(fig)
-     
-
+        url="https://drive.google.com/drive/folders/10UoYyWKnDCwwvzk8NMWAE-5XNarOSegA" #?usp=sharing
+        gdown.download_folder(url, quiet=True)      
+        TT=pathlib.Path("__file__").parent.resolve()
+        path_L=str(TT).replace("\\","/") 
+        P=pathlib.PureWindowsPath(path_L)
+        path_orig=str(P) #str(P.parents[0])
+        
+        path_dest=path_orig+"/dossier_test_copie2/" 
+        if not os.path.exists(path_dest):
+            os.mkdir(path_dest)
+        shutil.move(path_orig+"\keras_metadata.pb", path_dest+"\keras_metadata.pb")
+        shutil.move(path_orig+"\saved_model.pb", path_dest+"\saved_model.pb")
 
 
 
