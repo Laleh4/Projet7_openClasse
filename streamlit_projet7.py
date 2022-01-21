@@ -15,9 +15,7 @@ import pickle
 from sklearn.ensemble import RandomForestClassifier
 import shap
 
-import gdown
-import os
-import shutil
+
 
 
 TT=pathlib.Path(__file__).parent.resolve()
@@ -68,18 +66,7 @@ if choice=="General":
         plt.xticks(rotation=90)
         st.pyplot(fig)
        
-        url="https://drive.google.com/drive/folders/10UoYyWKnDCwwvzk8NMWAE-5XNarOSegA" #?usp=sharing
-        gdown.download_folder(url, quiet=True)      
-        TT=pathlib.Path("__file__").parent.resolve()
-        path_L=str(TT).replace("\\","/") 
-        P=pathlib.PureWindowsPath(path_L)
-        path_orig=str(P) #str(P.parents[0])
-        
-        path_dest=path_orig+"/dossier_test_copie2/" 
-        if not os.path.exists(path_dest):
-            os.mkdir(path_dest)
-        shutil.move(path_orig+"\keras_metadata.pb", path_dest+"\keras_metadata.pb")
-        shutil.move(path_orig+"\saved_model.pb", path_dest+"\saved_model.pb")
+  
 
 
 

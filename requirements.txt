@@ -3,9 +3,6 @@
 # C:\Users\laleh\Documents\OpenClassrooms\Data_scientist\projet7_modele_scoring\Streamlit_Github\streamlit_projet7.py: 11
 Pillow == 8.4.0
 
-# C:\Users\laleh\Documents\OpenClassrooms\Data_scientist\projet7_modele_scoring\Streamlit_Github\streamlit_projet7.py: 18
-gdown == 4.2.0
-
 # C:\Users\laleh\Documents\OpenClassrooms\Data_scientist\projet7_modele_scoring\Streamlit_Github\streamlit_projet7.py: 12
 numpy == 1.20.3
 
